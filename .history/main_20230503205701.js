@@ -76,12 +76,9 @@ start();
 const createNewStudent = (name) => {
   const houseNumber = Math.floor(Math.random() * 4)
   console.log(houseNumber)
-  let houseName = ""
+  const houseName = ''
    houses.forEach(house => {
-      if(house.number === houseNumber + 1){
-        houseName += house.name
-      }
-
+      console.log(house.number)
    })
    createStudentCard(name, houseName)
 

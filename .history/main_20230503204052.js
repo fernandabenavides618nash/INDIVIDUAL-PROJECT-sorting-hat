@@ -58,16 +58,12 @@ const start = () => {
   renderToDom("#intro-screen", initialScreen);
   const showFormButton = document.querySelector("#startButton");
   showFormButton.addEventListener("click", () => {
-    const schoolString = `<div class="students" id="students-div"><h3>Hogwarts</h3></div>
-    <div class="expelled" id="expelled-div"><h3>Voldemorts</h3></div>`
-    renderToDom('#school-div', schoolString)
     renderToDom("#form-div", formHtml);
     const btnSort = document.querySelector('#sort')
     btnSort.addEventListener('click', () => {
       const name = document.querySelector('#name').value
       createNewStudent(name)
     })
-   
   });
 };
 start();
@@ -76,13 +72,12 @@ start();
 const createNewStudent = (name) => {
   const houseNumber = Math.floor(Math.random() * 4)
   console.log(houseNumber)
-  let houseName = ""
-   houses.forEach(house => {
-      if(house.number === houseNumber + 1){
-        houseName += house.name
-      }
-
-   })
+  const houseName = ''
+   /*houses.forEach(house => {
+    if(house.number === houseNumber){
+      houseName += house.name
+    }
+   })*/
    createStudentCard(name, houseName)
 
 }

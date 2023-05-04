@@ -1,5 +1,5 @@
 body{
-  background-color:#6a6969;
+  background-color:#5d5d5d;
 }
 
 #intro-screen {
@@ -14,22 +14,12 @@ body{
   justify-content: center;
   font-family: 'Times New Roman', Times, serif;
   color: burlywood;
-  margin-top: 28px;
-  margin-bottom: 28px;
 }
 
 .intro h4 {
   display: flex;
   justify-content: center;
-  font-family:cursive;
+  font-family: 'Times New Roman', Times, serif;
   color: burlywood;
   font-style: italic;
-  margin-bottom: 28px;
-}
-
-#startButton {
-  color: green;
-  font-family: sans-serif;
-  font-weight: bolder;
-  background-color:bisque;
 }

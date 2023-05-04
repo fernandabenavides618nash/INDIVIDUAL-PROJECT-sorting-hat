@@ -2,6 +2,7 @@ console.log("here");
 
 // Data
 
+const students = [];
 const army = [];
 
 const houses = [
@@ -36,10 +37,10 @@ const voldemort = [
 
 const formHtml = `<div  class="row gy-2 gx-3 align-items-center">
     <div class="col-auto">
-      <label class="visually-hidden" for="name">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Jane Doe">
+      <label class="visually-hidden" for="autoSizingInput">Name</label>
+      <input type="text" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
     </div>
-      <button id="sort" class="btn btn-primary" >Sort!</button>
+      <button class="btn btn-primary" >Sort!</button>
     </div>
   </div>`;
 
@@ -48,76 +49,36 @@ const renderToDom = (divId, htmlToRender) => {
   selectedDivId.innerHTML = htmlToRender; // applies the .innerHTML property to the variable that stores the desired div and results in the htmlToRender (second parameter)
 };
 
-const addRenderToDom = (divId, htmlToRender) => {
-  const selectedDivId = document.querySelector(divId); // a variable that stores the desired div (first parameter)
-  selectedDivId.innerHTML += htmlToRender; // applies the .innerHTML property to the variable that stores the desired div and results in the htmlToRender (second parameter)
-};
-
 const start = () => {
   const initialScreen = `<div><h1>Welcome to Hogwarts</h1></div><div><h4>Let the Sorting Hat assign you to one of the houses</h4></div><button type="button" class="btn btn-outline-secondary" id='startButton'>Put on The Hat</button>`;
   renderToDom("#intro-screen", initialScreen);
   const showFormButton = document.querySelector("#startButton");
   showFormButton.addEventListener("click", () => {
-    const schoolString = `<div class="students" id="students-div"><h3>Hogwarts</h3></div>
-    <div class="expelled" id="expelled-div"><h3>Voldemorts</h3></div>`
-    renderToDom('#school-div', schoolString)
     renderToDom("#form-div", formHtml);
-    const btnSort = document.querySelector('#sort')
-    btnSort.addEventListener('click', () => {
-      const name = document.querySelector('#name').value
-      createNewStudent(name)
-    })
-   
   });
 };
 start();
 
 
-const createNewStudent = (name) => {
-  const houseNumber = Math.floor(Math.random() * 4)
-  console.log(houseNumber)
-  let houseName = ""
-   houses.forEach(house => {
-      if(house.number === houseNumber + 1){
-        houseName += house.name
-      }
-
-   })
-   createStudentCard(name, houseName)
-
-}
-
-const createStudentCard = (name, house) => {
-  const domString = `<div class="card w-75">
-  <div class="card-body">
-    <h5 class="card-title">${name}</h5>
-    <p class="card-text">${house}</p>
-    <a href="#" class="btn btn-primary" id="btn${name}">Expel</a>
-  </div>
-</div>`
-addRenderToDom('#students-div', domString)
-const btn = document.querySelector(`#btn${name}`)
-btn.addEventListener('click', () => {
-
-})
-}
- 
+const form = document.querySelector();
+    form.addEventListener("", () => {
+      renderToDom("#students-div", newStudentCard);
+      form.reset();
+    });
 
 
 
-
-
-/*const createNewStudent = () => {
+const createNewStudent = () => {
   e.preventDefault();
   const newStudentCard = {
-    name: document.querySelector("#name").value,
+    name: document.querySelector("#autoSizingInput").value,
     house: Math.floor(Math.random() * 4),
     expel: document.querySelector("#expelId"),
   };
   students.push(newStudentCard);
-};*/
+};
 
-/*const roster = (array) => {
+const roster = (array) => {
   let domString = `<div class="card w-75">
   <div class="card-body">
     <h5 class="card-title">${students.name}</h5>
@@ -126,4 +87,3 @@ btn.addEventListener('click', () => {
   </div>
 </div>`;
 };
-*/

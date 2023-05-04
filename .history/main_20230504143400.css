@@ -1,0 +1,19 @@
+body{
+  background-color:#5d5d5d;
+}
+
+#intro-screen {
+  background-color: maroon;
+  display: flex;
+  flex-direction: column;
+  margin: 100px;
+}
+.intro h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.intro h4 {
+  display: flex;
+  justify-content: center;
+}

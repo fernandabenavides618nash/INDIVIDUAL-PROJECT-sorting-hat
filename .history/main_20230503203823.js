@@ -48,26 +48,17 @@ const renderToDom = (divId, htmlToRender) => {
   selectedDivId.innerHTML = htmlToRender; // applies the .innerHTML property to the variable that stores the desired div and results in the htmlToRender (second parameter)
 };
 
-const addRenderToDom = (divId, htmlToRender) => {
-  const selectedDivId = document.querySelector(divId); // a variable that stores the desired div (first parameter)
-  selectedDivId.innerHTML += htmlToRender; // applies the .innerHTML property to the variable that stores the desired div and results in the htmlToRender (second parameter)
-};
-
 const start = () => {
   const initialScreen = `<div><h1>Welcome to Hogwarts</h1></div><div><h4>Let the Sorting Hat assign you to one of the houses</h4></div><button type="button" class="btn btn-outline-secondary" id='startButton'>Put on The Hat</button>`;
   renderToDom("#intro-screen", initialScreen);
   const showFormButton = document.querySelector("#startButton");
   showFormButton.addEventListener("click", () => {
-    const schoolString = `<div class="students" id="students-div"><h3>Hogwarts</h3></div>
-    <div class="expelled" id="expelled-div"><h3>Voldemorts</h3></div>`
-    renderToDom('#school-div', schoolString)
     renderToDom("#form-div", formHtml);
     const btnSort = document.querySelector('#sort')
     btnSort.addEventListener('click', () => {
       const name = document.querySelector('#name').value
       createNewStudent(name)
     })
-   
   });
 };
 start();
@@ -76,13 +67,12 @@ start();
 const createNewStudent = (name) => {
   const houseNumber = Math.floor(Math.random() * 4)
   console.log(houseNumber)
-  let houseName = ""
-   houses.forEach(house => {
-      if(house.number === houseNumber + 1){
-        houseName += house.name
-      }
-
-   })
+  const houseName = ''
+   /*houses.forEach(house => {
+    if(house.number === houseNumber){
+      houseName += house.name
+    }
+   })*/
    createStudentCard(name, houseName)
 
 }
@@ -95,7 +85,7 @@ const createStudentCard = (name, house) => {
     <a href="#" class="btn btn-primary" id="btn${name}">Expel</a>
   </div>
 </div>`
-addRenderToDom('#students-div', domString)
+renderToDom('#students-div', domString)
 const btn = document.querySelector(`#btn${name}`)
 btn.addEventListener('click', () => {
 

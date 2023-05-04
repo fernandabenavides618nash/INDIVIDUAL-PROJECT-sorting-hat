@@ -1,0 +1,18 @@
+body{
+  background-color:#5d5d5d;
+}
+
+#intro-screen {
+  background-color: maroon;
+  display: flex;
+  flex-direction: column;
+}
+.intro h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.intro h3 {
+  display: flex;
+  justify-content: center;
+}
