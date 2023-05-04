@@ -1,0 +1,10 @@
+body{
+  background-color:#5d5d5d;
+}
+
+#intro-screen {
+  background-color: maroon;
+  display: flex;
+  justify-content: center;
+
+}

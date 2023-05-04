@@ -1,0 +1,25 @@
+body{
+  background-color:#6a6969;
+}
+
+#intro-screen {
+  background-color: maroon;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.intro h1 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: burlywood;
+}
+
+.intro h4 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: burlywood;
+  font-style: italic;
+}

@@ -1,0 +1,35 @@
+body{
+  background-color:#6a6969;
+}
+
+#intro-screen {
+  background-color: maroon;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.intro h1 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: burlywood;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+.intro h4 {
+  display: flex;
+  justify-content: center;
+  font-family:cursive;
+  color: burlywood;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+#startButton {
+  color: green;
+  font-family: sans-serif;
+  font-weight: bolder;
+  border-radius: 50%;
+}
