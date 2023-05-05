@@ -41,12 +41,13 @@ const formHtml = `<div  class="row gy-2 gx-3 align-items-center" id="forma">
     </div>
   </div>`;
 
-const btnFilter = `<div class="buttons">
-  <button type="button" class="btn btn-primary" id="btnHufflepuff">Hufflepuff</button>
-  <button type="button" class="btn btn-primary" id="btnRavenclaw">Ravenclaw</button>
-  <button type="button" class="btn btn-primary" id="btnSlytherins">Slytherin</button>
-  <button type="button" class="btn btn-primary" id="btnGryffindor">Gryffindor</button>
-  <button type="button" class="btn btn-primary" id="btnAll">All</button>
+const btnFilter = `<div id="filterDiv" class="buttons">
+  <button type="button" class="btn btn-primary" id="btncolorYellow">Hufflepuff</button>
+  <button type="button" class="btn btn-primary" id="btncolorBlue">Ravenclaw</button>
+  <button type="button" class="btn btn-primary" id="btncolorGreen">Slytherin</button>
+  <button type="button" class="btn btn-primary" id="btncolorRed">Gryffindor</button>
+  <button type="button" class="btn btn-primary" 
+  id="btnAll">All</button>
 </div>`;
 
 const renderToDom = (divId, htmlToRender) => {
@@ -94,58 +95,27 @@ const start = () => {
 start();
 
 const filter = () => {
-  const filterH = document.getElementById("btnHufflepuff");
-  const filterR = document.getElementById("btnRavenclaw");
-  const filterS = document.getElementById("btnSlytherins");
-  const filterG = document.getElementById("btnGryffindor");
-  const filterA = document.getElementById("btnAll");
+  const filterDiv = document.getElementById("filterDiv");
+  filterDiv.addEventListener('click', (e) => {
+    const allCards = document.getElementsByClassName('card-school')
+    const btnId = ('' + e.target.id).split('btn')[1]
+    for(let i = 0; i < allCards.length; i++){
+      allCards[i].removeAttribute("hidden");
+      if(!allCards[i].classList.contains(btnId)){
+        allCards[i].setAttribute("hidden", "");
+      }
+    }
 
-  filterH.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
+  })
+
+    /*for (let i = 0; i < allCards.length; i++) {
       allCards[i].removeAttribute("hidden");
       if (!allCards[i].classList.contains("colorYellow")) {
         allCards[i].setAttribute("hidden", "");
       }
-    }
-  });
+    }*/
 
-  filterR.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorBlue")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
 
-  filterS.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorGreen")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
-
-  filterG.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorRed")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
-
-  filterA.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-       allCards[i].removeAttribute("hidden");
-    }
-  });
 };
 
 const moveStudent = (e) => {

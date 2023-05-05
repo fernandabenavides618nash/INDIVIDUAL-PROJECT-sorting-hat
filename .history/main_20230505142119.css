@@ -37,8 +37,6 @@ body{
 #forma {
   width: 100%;
   padding-top: 20px;
-  display: flex;
-  justify-content: space-evenly;
 }
 
 #name {
@@ -135,31 +133,8 @@ body{
   justify-content: center;
 }
 
-.buttons {
+.button {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: center;
-  margin-top: 20px;
-  flex-grow: 1;
-}
-
-#btnHufflepuff{
-  background-color:darkgoldenrod;
-}
-
-#btnRavenclaw{
-  background-color:rgb(24, 24, 105);
-}
-
-#btnSlytherins{
-  background-color:darkgreen;
-}
-
-#btnGryffindor{
-  background-color:darkred;
-}
-
-#btnAll{
-  background-color:darkslategray;
 }
