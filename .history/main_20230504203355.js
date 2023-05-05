@@ -74,21 +74,8 @@ const start = () => {
 start();
 
 const moveStudent = (e) => {
-  if(e.target.id.includes('btn')){
-    const idStudent = e.target.id.split('btn')[1]
-    const card = document.querySelector(`#card${idStudent}`)
-    const voldemortCard = `<div class="card w-75 colorBlack">
-    <div class="card-body">
-      <h5 class="card-title">${idStudent}</h5>
-      <p class="card-text">Voldemort's Army</p>
-    </div>
-  </div>`
-    card.remove()
-    addRenderToDom('#expelled-div', voldemortCard)
-  }
-  
-
-  
+  const idStudent = e.target.id
+  console.log(idStudent)
 }
 
 const createNewStudent = (name) => {
@@ -106,7 +93,7 @@ const createNewStudent = (name) => {
 };
 
 const createStudentCard = (name, house, houseColor) => {
-  const domString = `<div class="card w-75 color${houseColor}" id="card${name}">
+  const domString = `<div class="card w-75 color${houseColor}" id="card-${name}">
   <div class="card-body">
     <h5 class="card-title">${name}</h5>
     <p class="card-text">${house}</p>
