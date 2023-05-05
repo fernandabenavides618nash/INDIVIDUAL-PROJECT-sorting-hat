@@ -41,14 +41,6 @@ const formHtml = `<div  class="row gy-2 gx-3 align-items-center" id="forma">
     </div>
   </div>`;
 
-const btnFilter = `<div class="buttons">
-  <button type="button" class="btn btn-primary" id="btnHufflepuff">Hufflepuff</button>
-  <button type="button" class="btn btn-primary" id="btnRavenclaw">Ravenclaw</button>
-  <button type="button" class="btn btn-primary" id="btnSlytherins">Slytherin</button>
-  <button type="button" class="btn btn-primary" id="btnGryffindor">Gryffindor</button>
-  <button type="button" class="btn btn-primary" id="btnAll">All</button>
-</div>`;
-
 const renderToDom = (divId, htmlToRender) => {
   const selectedDivId = document.querySelector(divId); // a variable that stores the desired div (first parameter)
   selectedDivId.innerHTML = htmlToRender; // applies the .innerHTML property to the variable that stores the desired div and results in the htmlToRender (second parameter)
@@ -61,30 +53,18 @@ const addRenderToDom = (divId, htmlToRender) => {
 
 const start = () => {
   const initialScreen = `<div><h1>Welcome to Hogwarts</h1></div><div><h4>Let the Sorting Hat assign you to one of the houses</h4></div><button type="button" class="btn btn-outline-secondary" id='startButton'>Put on The Hat</button>`;
-
   renderToDom("#intro-screen", initialScreen);
-
   const showFormButton = document.querySelector("#startButton");
-
   showFormButton.addEventListener("click", () => {
     const schoolString = `<div class="students" id="students-div"><h3>Hogwarts</h3></div>
     <div class="expelled" id="expelled-div"><h3>Voldemorts</h3></div>`;
-
     renderToDom("#school-div", schoolString);
     renderToDom("#form-div", formHtml);
-
-    const schoolDiv = document.querySelector("#students-div");
-
-    schoolDiv.addEventListener("click", (e) => {
-      moveStudent(e);
-    });
-
-    addRenderToDom("#app", btnFilter);
-
-    filter();
-
+    const schoolDiv = document.querySelector('#students-div')
+    schoolDiv.addEventListener('click', (e) => {
+      moveStudent(e)
+    })
     const btnSort = document.querySelector("#sort");
-
     btnSort.addEventListener("click", () => {
       const name = document.querySelector("#name").value;
       createNewStudent(name);
@@ -93,75 +73,23 @@ const start = () => {
 };
 start();
 
-const filter = () => {
-  const filterH = document.getElementById("btnHufflepuff");
-  const filterR = document.getElementById("btnRavenclaw");
-  const filterS = document.getElementById("btnSlytherins");
-  const filterG = document.getElementById("btnGryffindor");
-  const filterA = document.getElementById("btnAll");
-
-  filterH.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorYellow")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
-
-  filterR.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorBlue")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
-
-  filterS.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorGreen")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
-
-  filterG.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
-      if (!allCards[i].classList.contains("colorRed")) {
-        allCards[i].setAttribute("hidden", "");
-      }
-    }
-  });
-
-  filterA.addEventListener("click", () => {
-    const allCards = document.getElementsByClassName("card-school");
-    for (let i = 0; i < allCards.length; i++) {
-       allCards[i].removeAttribute("hidden");
-    }
-  });
-};
-
 const moveStudent = (e) => {
-  if (e.target.id.includes("btn")) {
-    const idStudent = e.target.id.split("btn")[1];
-    const card = document.querySelector(`#card${idStudent}`);
+  if(e.target.id.includes('btn')){
+    const idStudent = e.target.id.split('btn')[1]
+    const card = document.querySelector(`#card${idStudent}`)
     const voldemortCard = `<div class="card w-75 colorBlack">
     <div class="card-body">
       <h5 class="card-title">${idStudent}</h5>
       <p class="card-text">Voldemort's Army</p>
     </div>
-  </div>`;
-    card.remove();
-    addRenderToDom("#expelled-div", voldemortCard);
+  </div>`
+    card.remove()
+    addRenderToDom('#expelled-div', voldemortCard)
   }
-};
+  
+
+  
+}
 
 const createNewStudent = (name) => {
   const houseNumber = Math.floor(Math.random() * 4);
@@ -178,12 +106,12 @@ const createNewStudent = (name) => {
 };
 
 const createStudentCard = (name, house, houseColor) => {
-  const domString = `<div class="card card-school w-75 color${houseColor}" id="card${name}">
+  const domString = `<div class="card w-75 color${houseColor}" id="card${name}">
   <div class="card-body">
     <h5 class="card-title">${name}</h5>
     <p class="card-text">${house}</p>
     <a href="#" class="btn btn-primary " id="btn${name}">Expel</a>
   </div>
 </div>`;
-  addRenderToDom("#students-div", domString);
+   addRenderToDom("#students-div", domString);
 };

@@ -103,7 +103,6 @@ const filter = () => {
   filterH.addEventListener("click", () => {
     const allCards = document.getElementsByClassName("card-school");
     for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
       if (!allCards[i].classList.contains("colorYellow")) {
         allCards[i].setAttribute("hidden", "");
       }
@@ -113,7 +112,6 @@ const filter = () => {
   filterR.addEventListener("click", () => {
     const allCards = document.getElementsByClassName("card-school");
     for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
       if (!allCards[i].classList.contains("colorBlue")) {
         allCards[i].setAttribute("hidden", "");
       }
@@ -123,7 +121,6 @@ const filter = () => {
   filterS.addEventListener("click", () => {
     const allCards = document.getElementsByClassName("card-school");
     for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
       if (!allCards[i].classList.contains("colorGreen")) {
         allCards[i].setAttribute("hidden", "");
       }
@@ -133,7 +130,6 @@ const filter = () => {
   filterG.addEventListener("click", () => {
     const allCards = document.getElementsByClassName("card-school");
     for (let i = 0; i < allCards.length; i++) {
-      allCards[i].removeAttribute("hidden");
       if (!allCards[i].classList.contains("colorRed")) {
         allCards[i].setAttribute("hidden", "");
       }
