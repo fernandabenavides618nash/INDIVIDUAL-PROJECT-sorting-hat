@@ -27,8 +27,14 @@ const houses = [
   },
   {
     number: 5,
-    name: "Voldemot's",
-    color: "Black",
+    color: 'Black',
+  }
+];
+
+const voldemort = [
+  {
+    name: "'Voldemort's Army",
+    color: "black",
   },
 ];
 
@@ -57,83 +63,86 @@ const start = () => {
   const showFormButton = document.querySelector("#startButton");
   showFormButton.addEventListener("click", () => {
     const schoolString = `<div class="students" id="students-div"><h3>Hogwarts</h3></div>
-    <div class="expelled" id="expelled-div"><h3>Voldemorts</h3></div>`;
-    renderToDom("#school-div", schoolString);
+    <div class="expelled" id="expelled-div"><h3>Voldemorts</h3></div>`
+    renderToDom('#school-div', schoolString)
     renderToDom("#form-div", formHtml);
-    const schoolDiv = document.querySelector('#students-div')
-    schoolDiv.addEventListener('click', (e) => {
-      moveStudent(e)
+    const btnSort = document.querySelector('#sort')
+    btnSort.addEventListener('click', () => {
+      const name = document.querySelector('#name').value
+      createNewStudent(name)
     })
-    const btnSort = document.querySelector("#sort");
-    btnSort.addEventListener("click", () => {
-      const name = document.querySelector("#name").value;
-      createNewStudent(name);
-    });
+   
   });
 };
 start();
 
-const moveStudent = (e) => {
-  if(e.target.id.includes('btn')){
-    const idStudent = e.target.id.split('btn')[1]
-    const card = document.querySelector(`#card${idStudent}`)
-    const voldemortCard = `<div class="card w-75 colorBlack">
-    <div class="card-body">
-      <h5 class="card-title">${idStudent}</h5>
-      <p class="card-text">Voldemort's Army</p>
-    </div>
-  </div>`
-    card.remove()
-    addRenderToDom('#expelled-div', voldemortCard)
-  }
-  
-
-  
-}
 
 const createNewStudent = (name) => {
-  const houseNumber = Math.floor(Math.random() * 4);
-  console.log(houseNumber);
-  let houseName = "";
-  let houseColor = "";
-  houses.forEach((house) => {
-    if (house.number === houseNumber + 1) {
-      houseName += house.name;
-      houseColor += house.color;
-    }
-  });
-  createStudentCard(name, houseName, houseColor);
-};
+  const houseNumber = Math.floor(Math.random() * 4)
+  console.log(houseNumber)
+  let houseName = ""
+  let houseColor = ""
+   houses.forEach(house => {
+      if(house.number === houseNumber + 1){
+        houseName += house.name
+        houseColor += house.color
+      }
+      
+   })
+   createStudentCard(name, houseName, houseColor)
+}
+
 
 const createStudentCard = (name, house, houseColor) => {
-  const domString = `<div class="card w-75 color${houseColor}" id="card${name}">
+  const domString = `<div class="card w-75" id="color${houseColor}">
   <div class="card-body">
     <h5 class="card-title">${name}</h5>
     <p class="card-text">${house}</p>
-    <a href="#" class="btn btn-primary " id="btn${name}">Expel</a>
+    <a href="#" class="btn btn-primary" id="btn${name}">Expel</a>
   </div>
-</div>`;
-   addRenderToDom("#students-div", domString);
-};
+</div>`
+addRenderToDom('#students-div', domString)
+const btn = document.querySelector(`#btn${name}`)
+btn.addEventListener('click', () => {
 
+})
+}
 
-
-/*const expelFunction = (`btn${name}`) => {
-  classes.number = 5
-  addRenderToDom('#expelled-div', voldemortCard)
-  }
-
+const expelFunction = () => {
   const voldemortCard = `<div class="card w-75" id="color${houseColor}">
   <div class="card-body">
     <h5 class="card-title">${name}</h5>
     <p class="card-text">${house}</p>
   </div>
 </div>`
-
-addRenderToDom('#expelled-div', voldemortCard)
-
+  addRenderToDom('#expelled-div', voldemortCard)
+}
 
 const expelButton = document.querySelector(`#btn${name}`) 
 expelButton.addEventListener('click', () => {
   expelFunction ();
-})*/
+})
+
+
+
+
+/*const createNewStudent = () => {
+  e.preventDefault();
+  const newStudentCard = {
+    name: document.querySelector("#name").value,
+    house: Math.floor(Math.random() * 4),
+    expel: document.querySelector("#expelId"),
+  };
+  students.push(newStudentCard);
+};*/
+
+/*const roster = (array) => {
+  let domString = `<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">${students.name}</h5>
+    <p class="card-text">${students.house}</p>
+    <a href="#" class="btn btn-primary" id="expelId">Expel</a>
+  </div>
+</div>`;
+};
+*/

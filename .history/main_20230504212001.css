@@ -60,7 +60,7 @@ body{
 }
 
 .expelled {
-  font-family:monospace
+  font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 .colorRed{
@@ -110,7 +110,6 @@ body{
 
 .card-body p {
   font-family: cursive;
-  width: 250px;
 }
 
 .class-title {
@@ -120,15 +119,6 @@ body{
   }
   
 #school-div {
-  padding-top: 20px;
-  width: auto;
   display: flex;
- max-width: none;
- justify-content: space-around;
+  width: auto,
 }  
-
-.w-75 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}

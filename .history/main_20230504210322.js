@@ -75,8 +75,10 @@ start();
 
 const moveStudent = (e) => {
   if(e.target.id.includes('btn')){
-    const idStudent = e.target.id.split('btn')[1]
-    const card = document.querySelector(`#card${idStudent}`)
+    let idStudent = ''
+    idStudent = e.target.id.split('btn')[0]
+    console.log('here')
+    /*const card = document.querySelector(`#card${idStudent}`)
     const voldemortCard = `<div class="card w-75 colorBlack">
     <div class="card-body">
       <h5 class="card-title">${idStudent}</h5>
@@ -84,7 +86,7 @@ const moveStudent = (e) => {
     </div>
   </div>`
     card.remove()
-    addRenderToDom('#expelled-div', voldemortCard)
+    addRenderToDom('#expelled-div', voldemortCard)*/
   }
   
 

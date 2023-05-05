@@ -55,80 +55,37 @@ body{
 
 .students {
   font-family: 'Times New Roman', Times, serif;
-  display: flex;
-  flex-direction: column;
 }
 
 .expelled {
-  font-family:monospace
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.colorRed{
- background-color:darkred;
- color:goldenrod;
-}
-
-.colorRed a {
-  background-color: goldenrod
-}
-
-.colorBlue {
-  background-color:rgb(24, 24, 105);
-  color:aliceblue;
-}
-
-.colorBlue a {
-  background-color: aliceblue;
-  color: rgb(24, 24, 105);
-}
-
-.colorGreen {
-  background-color:darkgreen;
-  color:black;
-}
-
-.colorGreen a {
-  background-color: black;
-  color:#6a6969;
-}
-
-
-.colorYellow {
-  background-color:darkgoldenrod;
-  color:black;
-}
-
-.colorYellow a {
-  background-color:black;
-  color: darkgoldenrod;
-}
-
-.colorBlack {
-  background-color:darkslategray;
-  color: silver
-}
-
-.card-body p {
-  font-family: cursive;
-  width: 250px;
+#roster-card {
+  background-color:burlywood;
+  width: 50px;
 }
 
 .class-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: xx-large;
-  font-weight: bolder;
-  }
-  
-#school-div {
-  padding-top: 20px;
-  width: auto;
-  display: flex;
- max-width: none;
- justify-content: space-around;
-}  
+font-family: 'Times New Roman', Times, serif;
+}
 
-.w-75 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.class-text {
+  font-family: cursive;
+}
+
+#colorRed{
+ background-color:darkred;
+}
+
+#colorBlue {
+  background-color:darkblue;
+}
+
+#colorGreen {
+  background-color:darkgreen;
+}
+
+#colorYellow {
+  background-color:darkgoldenrod;
 }
